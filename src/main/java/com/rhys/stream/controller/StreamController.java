@@ -1,6 +1,6 @@
 package com.rhys.stream.controller;
 
-import com.rhys.stream.util.RedisStreamMQ;
+import com.rhys.stream.util.RedisStreamUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.StreamEntryID;
@@ -17,10 +17,10 @@ import java.util.Map;
 public class StreamController {
 
     @Autowired
-    private RedisStreamMQ redisStreamMQ;
+    private RedisStreamUtil redisStreamUtil;
 
     @PostMapping(value = "/send/{key}")
     public StreamEntryID send(@PathVariable String key, @RequestBody Map<String, String> message) {
-        return redisStreamMQ.produce(key, message);
+        return redisStreamUtil.produce(key, message);
     }
 }

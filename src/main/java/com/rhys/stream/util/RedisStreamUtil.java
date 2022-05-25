@@ -21,7 +21,7 @@ import java.util.Map;
  */
 
 @Component
-public class RedisStreamMQ {
+public class RedisStreamUtil {
     @Autowired
     private JedisPool jedisPool;
 
